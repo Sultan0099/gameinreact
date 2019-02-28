@@ -44,7 +44,13 @@ export default function handleMovement(player) {
     const y = newPos[1] / SPRITE_SIZE
     const x = newPos[0] / SPRITE_SIZE
     const nextTile = tiles[y][x]
-    return nextTile < 5
+    winner(nextTile);
+    return nextTile  < 5 
+  }
+  function winner(nextTile){
+    if(nextTile === 4){
+    alert('your find the treasure')
+   }
   }
 
   function dispatchMove(direction, newPos) {
@@ -66,6 +72,7 @@ export default function handleMovement(player) {
 
     if(observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos))
       dispatchMove(direction, newPos)
+  
   }
 
   function handleKeyDown(e) {
